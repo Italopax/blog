@@ -1,29 +1,19 @@
 import React from "react";
 import "./App.css";
-import Header from "./Header";
-import Footer from "./Footer";
-import Posts from "./Posts";
-import Modal from "./Modal";
+import Header from "./components/parts/Header";
+import Footer from "./components/parts/Footer";
+import Main from "./components/parts/Main";
+import { UserStorage } from "./UserContext";
 
 function App() {
 
-  const [modal, setModal] = React.useState(false);
-  const [posts, setPosts] = React.useState(
-    localStorage.getItem('posts') ? JSON.parse(localStorage.getItem('posts')) : []
-  );
-
-  React.useEffect(()=>{
-    localStorage.setItem('posts', JSON.stringify(posts));
-  }, [posts])
-
   return (
     <div className="app">
-      <Header modal={modal} setModal={setModal} />
-      <main className="maxSize">
-        <Posts posts={posts} setPosts={setPosts} />
-        {modal ? <Modal setModal={setModal} posts={posts} setPosts={setPosts} /> : null}
-      </main>
-      <Footer />
+      <UserStorage>
+        <Header />
+        <Main />
+        <Footer />
+      </UserStorage>
     </div>
   );
 }

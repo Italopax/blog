@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./Post.module.css";
+import { UserContext } from "../../UserContext";
 
-const Post = ({title, content, id, posts, setPosts}) => {
+const Post = ({title, content, id}) => {
+
+  const {posts, setPosts} = React.useContext(UserContext);
 
   function deletePost () {
     posts.map((post)=>{

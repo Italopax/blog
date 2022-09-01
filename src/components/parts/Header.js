@@ -1,7 +1,10 @@
 import React from "react";
 import styles from "./Header.module.css";
+import { UserContext } from "../../UserContext";
 
-const Header = ({setModal}) => {
+const Header = () => {
+
+  const {setModal} = React.useContext(UserContext);
 
   return(
     <header className={styles.header}>

@@ -1,8 +1,11 @@
 import React from "react";
 import Input from "./Input";
-import styles from "./Modal.module.css";
+import styles from "./ModalCreatePost.module.css";
+import { UserContext } from "../UserContext";
 
-const Modal = ({setModal, posts, setPosts}) => {
+const ModalCreatePost = () => {
+
+  const {setModal, posts, setPosts} = React.useContext(UserContext);
 
   const [titulo, setTitulo] = React.useState('');
   const [conteudo, setConteudo] = React.useState('');
@@ -33,4 +36,4 @@ const Modal = ({setModal, posts, setPosts}) => {
   )
 }
 
-export default Modal;
+export default ModalCreatePost;
