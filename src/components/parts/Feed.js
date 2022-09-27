@@ -2,8 +2,9 @@ import React from "react";
 import Posts from "../feed/Posts";
 import ModalCreatePost from "../ModalCreatePost";
 import { UserContext } from "../../UserContext";
+import styles from "./Feed.module.css";
 
-function Main() {
+function Feed() {
 
   const {modal, posts} = React.useContext(UserContext);
 
@@ -19,4 +20,4 @@ function Main() {
   );
 }
 
-export default Main;
+export default Feed;
